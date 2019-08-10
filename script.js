@@ -2,6 +2,8 @@
 let resetButton = document.querySelector("#reset");
 let container = document.getElementById("container");
 let squaresPerSide = 0;
+const blackRate = 255*0.1;
+
 resetButton.addEventListener("click", (e)=>{
     squaresPerSide= window.prompt("How many spares per side?");
     resetGrid();
@@ -18,14 +20,12 @@ function changeSquareColor(e){
         let red = parseInt(colors[0].slice(4),10);
         let green = parseInt(colors[1],10);
         let blue = parseInt(colors[2].slice(0,-1),10);
-        e.target.style.backgroundColor = "rgb( "+(red-(red*0.2))+","+(green-green*0.2)+","+(blue-blue*0.2)+")";
+        e.target.style.backgroundColor = "rgb( "+(red-blackRate)+","+(green-blackRate)+","+(blue-blackRate)+")";
     }
 }
 
 function resetGrid(){
     container.innerHTML = "";
-    //while (container.hasChildNodes())
-      //  container.removeChild(container.childNodes[0]);
 }
 
 function creategrid(squaresNumber){
